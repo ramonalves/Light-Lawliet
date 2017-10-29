@@ -1,0 +1,40 @@
+{
+  "name": "light-lawliet-server",
+  "version": "1.0.0",
+  "description": "Sistema de ecommerce para processo seletivo da Evnts",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramonalves/light-lawliet.git"
+  },
+  "keywords": [
+    "ecommerce",
+    "nodejs",
+    "evnts"
+  ],
+  "author": "Ramon Alves <ramon_agn@outlool.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramonalves/light-lawliet/issues"
+  },
+  "homepage": "https://github.com/ramonalves/light-lawliet#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.12.4",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
