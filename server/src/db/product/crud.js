@@ -19,9 +19,7 @@ exports.getBySlug = async(slug) => {
 
 exports.getById = async(id) => {
     const res = await Product
-        .findOne({
-            _id: id
-        }, 'id name description price slug image quantity enable')
+        .findById( id, 'id name description price slug image quantity enable')
         .populate('category', 'name')
     return res
 }
@@ -32,18 +30,19 @@ exports.getByCategory = async(category) => {
             category: mongoose.Types.ObjectId(category),
         }, 'id name description price slug image quantity enable')
         .populate('category', 'name')
+
     return res
 }
 
-
 exports.create = async(data) => {
-    var product = new Product(data)
+    let product = new Product(data)
     const res = await product.save()
+
     return res
 }
 
 exports.update = async(id, data) => {
-    await Product
+    const res = await Product
         .findByIdAndUpdate(id, {
             $set: {
                 name: data.name,
@@ -53,6 +52,8 @@ exports.update = async(id, data) => {
                 category: data.category
             }
         })
+        
+    return res
 }
 
 exports.delete = async(id) => {

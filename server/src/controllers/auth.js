@@ -11,7 +11,10 @@ module.exports = function (app) {
 
             let callback = function (err, user) {
                 if (err) {
-                    return res.status(500).json({err: err});
+                    return res.status(500).json({
+                        status: false,
+                        err: err
+                    });
                 }
 
                 if (!user) {
@@ -27,6 +30,7 @@ module.exports = function (app) {
         },
         me: (req, res) => {
             res.status(200).json({
+                status: true,
                 user: req.user
             });
         },
@@ -39,9 +43,15 @@ module.exports = function (app) {
 
             let callback = function (err, user) {
                 if (err) {
-                    return res.status(422).json({err: err});
+                    return res.status(422).json({
+                        status: false,
+                        err: err
+                    });
                 }
-                return res.status(200).json({id: user_id});
+                return res.status(200).json({
+                    status: true,
+                    data: user
+                });
             }
 
             User.create(data, callback);

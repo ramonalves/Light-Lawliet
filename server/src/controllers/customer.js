@@ -1,28 +1,11 @@
-const DataValidator = require('./../helpers/data-validator')
-const Category = require('./../db/category/crud')
+const Validator = require('./../helpers/data-validator')
+const Customer = require('./../db/customer/crud')
 const slugfy = require('./../helpers/slugfy')
 
 exports.get = async(req, res, next) => {
     try {
-        var data = await Category.get()
-        res.status(200).json({
-            status: true,
-            data
-        })
-    } catch (e) {
-        res.status(500).json({
-            message: 'Ocorreu um erro interno e não foi possível completar a requisição.'
-        })
-    }
-}
-
-exports.getBySlug = async(req, res, next) => {
-    try {
-        var data = await Category.getBySlug(req.params.slug)
-        res.status(200).json({
-            status: true,
-            data
-        })
+        var data = await Customer.get()
+        res.status(200).json({status: true, data: data})
     } catch (e) {
         res.status(500).json({
             status: false,
@@ -34,11 +17,8 @@ exports.getBySlug = async(req, res, next) => {
 
 exports.getById = async(req, res, next) => {
     try {
-        var data = await Category.getById(req.params.id)
-        res.status(200).json({
-            status: true,
-            data
-        })
+        var data = await Customer.getById(req.params.id)
+        res.status(200).json({status: true, data: data})
     } catch (e) {
         res.status(500).json({
             status: false,
@@ -49,29 +29,36 @@ exports.getById = async(req, res, next) => {
 }
 
 exports.add = async(req, res, next) => {
-    let contract = new DataValidator()
-    contract.hasMinLen(req.body.name, 3, 'O título deve conter pelo menos 3 caracteres')
-    contract.hasMinLen(req.body.description, 3, 'O título deve conter pelo menos 3 caracteres')
+    let contract = new Validator()
+    contract.hasMinLen(req.body.name, 3, 'O nome deve conter pelo menos 3 caracteres')
+    contract.isEmail(req.body.email, 'E-mail inválido');
+    contract.hasMinLen(req.body.password, 6, 'A senha deve conter pelo menos 6 caracteres');
 
-    // invalid date
+    // invalid data
     if (!contract.isValid()) {
         res.status(400).json(contract.errors()).end()
         return
     }
 
     try {
-        let slug = slugfy(req.body.name)    
+        let slug = slugfy(req.body.name)        
 
-        let data = await Category.create({
+        let data = await Customer.create({
             name: req.body.name,
+            password: req.body.password,
             slug: slug,
-            description: req.body.description
+            email: req.body.email,
+            cpf: req.body.cpf,
+            celphone: req.body.celphone,            
+            address: req.body.address
+            
         })
         res.status(201).json({
-            status: true,
-            data
+            status: true, 
+            data: data
         })
     } catch (e) {
+        console.log(e)
         res.status(500).json({
             status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
@@ -82,10 +69,10 @@ exports.add = async(req, res, next) => {
 
 exports.edit = async(req, res, next) => {
     try {
-        let data = await Category.update(req.params.id, req.body)
+        let data = await Customer.update(req.params.id, req.body)
         res.status(200).json({
-            status: true,
-            data
+            status: true, 
+            data: data
         })
     } catch (e) {
         res.status(500).json({
@@ -98,7 +85,7 @@ exports.edit = async(req, res, next) => {
 
 exports.delete = async(req, res, next) => {
     try {
-        await Category.delete(req.body.id)
+        await Customer.delete(req.body.id)
         res.status(204).json({
             status: true
         })

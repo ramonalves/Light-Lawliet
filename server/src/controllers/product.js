@@ -8,9 +8,13 @@ const Product = require('./../db/product/crud')
 exports.get = async(req, res, next) => {
     try {
         var data = await Product.get()
-        res.status(200).json(data)
+        res.status(200).json({
+            status: true,
+            data
+        })
     } catch (e) {
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })
@@ -20,9 +24,13 @@ exports.get = async(req, res, next) => {
 exports.getBySlug = async(req, res, next) => {
     try {
         var data = await Product.getBySlug(req.params.slug)
-        res.status(200).json(data)
+        res.status(200).json({ 
+            status: true,
+            data
+        })
     } catch (e) {
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })
@@ -32,9 +40,13 @@ exports.getBySlug = async(req, res, next) => {
 exports.getById = async(req, res, next) => {
     try {
         var data = await Product.getById(req.params.id)
-        res.status(200).json(data)
+        res.status(200).json({
+            status: true,
+            data
+        })
     } catch (e) {
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })
@@ -44,9 +56,13 @@ exports.getById = async(req, res, next) => {
 exports.getByCategory = async(req, res, next) => {
     try {
         var data = await Product.getByCategory(req.params.id)
-        res.status(200).json(data)
+        res.status(200).json({
+            status: true,
+            data
+        })
     } catch (e) {
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })
@@ -97,12 +113,13 @@ exports.add = async(req, res, next) => {
             category: req.body.category
         })
         res.status(201).json({
-            message: 'Produto cadastrado com sucesso!',
+            status: true,
             data
         })
     } catch (e) {
         console.log(e)
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })
@@ -111,12 +128,14 @@ exports.add = async(req, res, next) => {
 
 exports.edit = async(req, res, next) => {
     try {
-        await Product.update(req.params.id, req.body)
+        let data = await Product.update(req.params.id, req.body)
         res.status(200).json({
-            message: 'Produto atualizado com sucesso!'
+            status: true,
+            data
         })
     } catch (e) {
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })
@@ -127,10 +146,11 @@ exports.delete = async(req, res, next) => {
     try {
         await Product.delete(req.body.id)
         res.status(204).json({
-            message: 'Produto removido com sucesso!'
+            status: true
         })
     } catch (e) {
         res.status(500).json({
+            status: false,
             message: 'Ocorreu um erro interno e não foi possível completar a requisição.',
             error: e
         })

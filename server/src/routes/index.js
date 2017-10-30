@@ -3,6 +3,7 @@ const passport = require('./../auth/auth')
 const auth = require('./auth')
 const products = require('./products')
 const categories = require('./categories')
+const customers = require('./customers')
 
 module.exports = (app) => {
     app.get('/', function(req, res) {
@@ -14,4 +15,5 @@ module.exports = (app) => {
     auth(app)
     products(app)
     categories(app)
+    customers(app)
 }

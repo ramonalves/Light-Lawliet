@@ -17,6 +17,12 @@ exports.getBySlug = async(slug) => {
     return res
 }
 
+exports.getById = async(id) => {
+    const res = await Category
+        .findById(id, 'id name description enable')
+    return res
+}
+
 exports.create = async(data) => {
     const category = new Category(data)
     const res = await category.save()
@@ -24,7 +30,7 @@ exports.create = async(data) => {
 }
 
 exports.update = async(id, data) => {
-    await Category
+    const res = await Category
         .findByIdAndUpdate(id, {
             $set: {
                 name: data.name,
@@ -32,6 +38,8 @@ exports.update = async(id, data) => {
                 slug: data.slug
             }
         })
+
+    return res
 }
 
 exports.delete = async(id) => {
