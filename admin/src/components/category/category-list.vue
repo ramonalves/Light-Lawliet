@@ -1,61 +1,47 @@
 <template>
   <div class="row">
-    <div class="col s12">
-      <h5>Gerenciamento de Campanha</h5>
-    </div>
-    <div class="col m9">
-      <div class="card grey lighten-4">
-        <div class="card-content">
-          <table>
-            <thead>
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Categorias</h3>
+          <p><a href="#/categories/new"> Add nova categoria</a></p>
+          <div class="table-responsive">
+						<table class="table table-hover">
+              <thead>
               <tr>
                 <th>#</th>
-                <th>título</th>
-                <th>status</th>
-                <th>inicio</th>
-                <th>lista</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Disponível</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(email, index) in emails">
+              <tr v-for="(category, index) in categories">
                 <td>{{ index + 1 }}</td>
-                <td>{{ email.title }}</td>
-                <td>{{ email.status }}</td>
-                <td>{{ email.start }}</td>
-                <td>{{ email.list }}</td>
+                <td>{{ category.name }}</td>
+                <td>{{ category.description }}</td>
+                <td v-if="category.enable">Sim</td>
+                <td v-else>Não</td>
                 <td>
-                  <a :href="'#/email/view/' + email._id" class="btn">ver</a>
-                  <a :href="'#/email/edit/' + email._id" class="btn blue">editar</a>
-                  <a :href="'#/email/remove/' + email._id" class="btn red">remover</a>
+                  <a :href="'#/categories/show/' + category._id" class="btn btn-xs btn-success"><i class="fa fa-eye"> </i></a>
+                  <a :href="'#/categories/remove/' + category._id" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
             </tbody>
-          </table>
+						</table>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col m3">
-      <div class="card lime">
-        <div class="card-content">
-          <span class="card-title">
-            Deseja iniciar uma campanha?
-          </span>
-          <p>
-            <a class="btn blue" href="#/email/new"> Começar </a>
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
   export default {
     computed: {
-      emails: function () {
-        return this.$store.state.email.emails
+      categories: function () {
+        return this.$store.state.category.categories
       }
     },
     mounted () {

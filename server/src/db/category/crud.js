@@ -4,7 +4,7 @@ exports.get = async() => {
     const res = await Category
         .find({
             enable: true
-        }, 'name description slug')
+        }, 'name description slug enable')
     return res
 }
 
@@ -13,7 +13,7 @@ exports.getBySlug = async(slug) => {
         .findOne({
             slug: slug,
             enable: true
-        }, 'name description slug')
+        }, 'name description slug enable')
     return res
 }
 

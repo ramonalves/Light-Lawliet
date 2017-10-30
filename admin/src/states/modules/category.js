@@ -2,38 +2,43 @@ let qs = require('qs')
 
 export default {
   state: {
-    me: null,
-    token: window.localStorage.getItem('token')
+    categories: [],
+    category: {}
   },
   mutations: {
-    updateUser (state, data) {
-      state.me = data
+    updateCategories (state, data) {
+      state.categories = data
     },
-    updateToken (state, data) {
-      state.token = data
+    updateCategory (state, data) {
+      state.category = data
     }
   },
   actions: {
-    getCurrentUser (context) {
-      return window.axios.get('/oauth/me').then((response) => {
-        context.commit('updateUser', response.data)
+    getAll (context) {
+      return window.axios.get('/api/categories').then((response) => {
+        context.commit('updateCategories', response.data.data)
         return response
       })
     },
-    authentication (context, user) {
-      return window.axios.post('/oauth/token', qs.stringify(user)).then((response) => {
-        context.commit('updateToken', response.data.token)
-        window.localStorage.setItem('token', response.data.token)
+    getOne (context, id) {
+      return window.axios.get('/api/categories/' + id).then((response) => {
+        context.commit('updateCategory', response.data.data)
         return response
       })
     },
-    register (context, user) {
-      return window.axios.post('/oauth/register', qs.stringify(user)).then((response) => {
-        let authData = {
-          username: user.email,
-          password: user.password
-        }
-        return context.dispatch('authentication', authData)
+    insert (context, data) {
+      return window.axios.post('/api/categories', qs.stringify(data)).then((response) => {
+        return response
+      })
+    },
+    update (context, data) {
+      return window.axios.put('/api/categories/' + data._id, qs.stringify(data)).then((response) => {
+        return response
+      })
+    },
+    remove (context, id) {
+      return window.axios.delete('/api/categories/' + id).then((response) => {
+        return response
       })
     }
   }

@@ -2,38 +2,43 @@ let qs = require('qs')
 
 export default {
   state: {
-    me: null,
-    token: window.localStorage.getItem('token')
+    products: [],
+    product: {}
   },
   mutations: {
-    updateUser (state, data) {
-      state.me = data
+    updateProducts (state, data) {
+      state.products = data
     },
-    updateToken (state, data) {
-      state.token = data
+    updateProduct (state, data) {
+      state.product = data
     }
   },
   actions: {
-    getCurrentUser (context) {
-      return window.axios.get('/oauth/me').then((response) => {
-        context.commit('updateUser', response.data)
+    getAll (context) {
+      return window.axios.get('/api/products').then((response) => {
+        context.commit('updateProducts', response.data.data)
         return response
       })
     },
-    authentication (context, user) {
-      return window.axios.post('/oauth/token', qs.stringify(user)).then((response) => {
-        context.commit('updateToken', response.data.token)
-        window.localStorage.setItem('token', response.data.token)
+    getOne (context, id) {
+      return window.axios.get('/api/products/' + id).then((response) => {
+        context.commit('updateProduct', response.data.data)
         return response
       })
     },
-    register (context, user) {
-      return window.axios.post('/oauth/register', qs.stringify(user)).then((response) => {
-        let authData = {
-          username: user.email,
-          password: user.password
-        }
-        return context.dispatch('authentication', authData)
+    insert (context, data) {
+      return window.axios.post('/api/products', qs.stringify(data)).then((response) => {
+        return response
+      })
+    },
+    update (context, data) {
+      return window.axios.put('/api/products/' + data._id, qs.stringify(data)).then((response) => {
+        return response
+      })
+    },
+    remove (context, id) {
+      return window.axios.delete('/api/products/' + id).then((response) => {
+        return response
       })
     }
   }

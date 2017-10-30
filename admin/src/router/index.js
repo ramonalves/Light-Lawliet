@@ -3,12 +3,16 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Login from '@/components/auth/Login'
 import store from '@/states'
-import EmailList from '@/components/email/email-list'
-import ListsList from '@/components/lists/lists-list'
-import EmailNew from '@/components/email/email-new'
-import EmailView from '@/components/email/email-view'
-import EmailEdit from '@/components/email/email-edit'
-import EmailRemove from '@/components/email/email-remove'
+import CategoryList from '@/components/category/category-list'
+import CategoryNew from '@/components/category/category-new'
+import CategoryShow from '@/components/category/category-show'
+import CategoryEdit from '@/components/category/category-edit'
+import CategoryRemove from '@/components/category/category-remove'
+import ProductList from '@/components/product/product-list'
+import ProductNew from '@/components/product/product-new'
+import ProductShow from '@/components/product/product-show'
+import ProductEdit from '@/components/product/product-edit'
+import ProductRemove from '@/components/product/product-remove'
 
 Vue.use(Router)
 
@@ -20,46 +24,75 @@ let router = new Router({
       component: Hello,
       meta: { requiresAuth: true }
     },
-    {
-      path: '/email',
-      name: 'EmailList',
-      component: EmailList,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/email/new',
-      name: 'EmailNew',
-      component: EmailNew,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/email/view/:id',
-      name: 'EmailView',
-      component: EmailView,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/email/edit/:id',
-      name: 'EmailEdit',
-      component: EmailEdit,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/email/remove/:id',
-      name: 'EmailRemove',
-      component: EmailRemove,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/lists',
-      name: 'ListsList',
-      component: ListsList,
-      meta: { requiresAuth: true }
-    },
+
     {
       path: '/login',
       name: 'Login',
       component: Login
+    },
+
+    // Rotas para Category
+    {
+      path: '/categories',
+      name: 'CategoryList',
+      component: CategoryList,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/categories/new',
+      name: 'CategoryNew',
+      component: CategoryNew,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/categories/show/:id',
+      name: 'CategoryShow',
+      component: CategoryShow,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/categories/edit/:id',
+      name: 'CategoryEdit',
+      component: CategoryEdit,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/categories/remove/:id',
+      name: 'CategoryRemove',
+      component: CategoryRemove,
+      meta: { requiresAuth: true }
+    },
+
+    // Rotas para Product
+    {
+      path: '/products',
+      name: 'ProductList',
+      component: ProductList,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/products/new',
+      name: 'ProductNew',
+      component: ProductNew,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/products/show/:id',
+      name: 'ProductShow',
+      component: ProductShow,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/products/edit/:id',
+      name: 'ProductEdit',
+      component: ProductEdit,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/products/remove/:id',
+      name: 'ProductRemove',
+      component: ProductRemove,
+      meta: { requiresAuth: true }
     }
   ]
 })

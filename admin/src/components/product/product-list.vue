@@ -1,61 +1,53 @@
 <template>
   <div class="row">
-    <div class="col s12">
-      <h5>Gerenciamento de Campanha</h5>
-    </div>
-    <div class="col m9">
-      <div class="card grey lighten-4">
-        <div class="card-content">
-          <table>
-            <thead>
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Produtos</h3>
+          <p><a href="#/products/new"> Add novo produto</a></p>
+          <div class="table-responsive">
+						<table class="table table-hover">
+              <thead>
               <tr>
                 <th>#</th>
-                <th>título</th>
-                <th>status</th>
-                <th>inicio</th>
-                <th>lista</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Valor (R$)</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Disponível</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(email, index) in emails">
+              <tr v-for="(product, index) in products">
                 <td>{{ index + 1 }}</td>
-                <td>{{ email.title }}</td>
-                <td>{{ email.status }}</td>
-                <td>{{ email.start }}</td>
-                <td>{{ email.list }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.category.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td v-if="product.enable">Sim</td>
+                <td v-else>Não</td>
                 <td>
-                  <a :href="'#/email/view/' + email._id" class="btn">ver</a>
-                  <a :href="'#/email/edit/' + email._id" class="btn blue">editar</a>
-                  <a :href="'#/email/remove/' + email._id" class="btn red">remover</a>
+                  <a :href="'#/products/show/' + product._id" class="btn btn-xs btn-success"><i class="fa fa-eye"> </i></a>
+                  <a :href="'#/products/remove/' + product._id" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
                 </td>
               </tr>
             </tbody>
-          </table>
+						</table>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col m3">
-      <div class="card lime">
-        <div class="card-content">
-          <span class="card-title">
-            Deseja iniciar uma campanha?
-          </span>
-          <p>
-            <a class="btn blue" href="#/email/new"> Começar </a>
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
   export default {
     computed: {
-      emails: function () {
-        return this.$store.state.email.emails
+      products: function () {
+        return this.$store.state.product.products
       }
     },
     mounted () {
