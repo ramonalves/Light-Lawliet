@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 exports.get = async() => {
     const res = await Product
-        .find({}, 'id name description price slug image quantity enable')
+        .find({}, 'id name description price slug image quantity enable created')
         .populate('category', 'name')
     return res
 }
@@ -12,14 +12,14 @@ exports.getBySlug = async(slug) => {
     const res = await Product
         .findOne({
             slug: slug
-        }, 'id name description price slug image quantity enable')
+        }, 'id name description price slug image quantity enable created')
         .populate('category', 'name')
     return res
 }
 
 exports.getById = async(id) => {
     const res = await Product
-        .findById( id, 'id name description price slug image quantity enable')
+        .findById( id, 'id name description price slug image quantity enable created')
         .populate('category', 'name')
     return res
 }
@@ -28,7 +28,7 @@ exports.getByCategory = async(category) => {
     const res = await Product
         .find({
             category: mongoose.Types.ObjectId(category),
-        }, 'id name description price slug image quantity enable')
+        }, 'id name description price slug image quantity enable created')
         .populate('category', 'name')
 
     return res

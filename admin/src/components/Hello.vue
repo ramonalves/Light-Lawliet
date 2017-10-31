@@ -17,5 +17,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
+#wrapper {
+    padding-left: 225px;
+}
 </style>

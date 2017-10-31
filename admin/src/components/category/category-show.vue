@@ -1,65 +1,64 @@
 <template>
   <div class="row">
-    <div class="col s12">
-      <h5>Gerenciamento de Campanha</h5>
-    </div>
-    <div class="col m9">
-      <div class="card grey lighten-4">
-        <div class="card-content">
-          <table>
-            <thead>
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Categoria - {{ category.name }}</h3>
+          <a :href="'#/categories/edit/' + category._id" class="btn btn-xs btn-success"><i class="fa fa-edit"> </i></a>
+          <a :href="'#/categories/remove/' + category._id" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+          <div class="table-responsive">
+						<table class="table table-hover">
+              <thead>
               <tr>
-                <th>#</th>
-                <th>título</th>
-                <th>status</th>
-                <th>inicio</th>
-                <th>lista</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(email, index) in emails">
-                <td>{{ index + 1 }}</td>
-                <td>{{ email.title }}</td>
-                <td>{{ email.status }}</td>
-                <td>{{ email.start }}</td>
-                <td>{{ email.list }}</td>
-                <td>
-                  <a :href="'#/email/view/' + email._id" class="btn">ver</a>
-                  <a :href="'#/email/edit/' + email._id" class="btn blue">editar</a>
-                  <a :href="'#/email/remove/' + email._id" class="btn red">remover</a>
-                </td>
+              <tr>
+                <th>ID</th>
+                <td>{{ category._id }}</td>
+              </tr>
+              <tr>
+                <th>Nome</th>
+                <td>{{ category.name }}</td>
+              </tr>
+              <tr>
+                <th>Descrição</th>
+                <td>{{ category.description }}</td>
+              </tr>
+              <tr>
+                <th>Disponível</th>
+                <td v-if="category.enable">Sim</td>
+                <td v-else>Não</td>
+              </tr>
+              <tr>
+                <th>Data de Criação</th>
+                <td>{{ formatDate(category.created) }}</td>
               </tr>
             </tbody>
-          </table>
+						</table>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col m3">
-      <div class="card lime">
-        <div class="card-content">
-          <span class="card-title">
-            Deseja iniciar uma campanha?
-          </span>
-          <p>
-            <a class="btn blue" href="#/email/new"> Começar </a>
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
   export default {
     computed: {
-      emails: function () {
-        return this.$store.state.email.emails
+      category: function () {
+        return this.$store.state.category.category
       }
     },
     mounted () {
-      this.$store.dispatch('getAll')
+      this.$store.dispatch('getOneCategory', this.$route.params.id)
+    },
+    methods: {
+      formatDate (value) {
+        return this.$moment(String(value)).format('DD/MM/YYYY HH:mm')
+      }
     }
   }
 </script>
+

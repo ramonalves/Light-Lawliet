@@ -25,7 +25,7 @@
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
-                <td>{{ product.category.name }}</td>
+                <td><a :href="'#/products/categories/' + product.category._id"> {{ product.category.name }} </a></td>
                 <td>{{ product.quantity }}</td>
                 <td v-if="product.enable">Sim</td>
                 <td v-else>Não</td>
@@ -51,7 +51,7 @@
       }
     },
     mounted () {
-      this.$store.dispatch('getAll')
+      this.$store.dispatch('getAllProducts')
     }
   }
 </script>

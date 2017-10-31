@@ -24,8 +24,9 @@
                 <td v-if="category.enable">Sim</td>
                 <td v-else>Não</td>
                 <td>
-                  <a :href="'#/categories/show/' + category._id" class="btn btn-xs btn-success"><i class="fa fa-eye"> </i></a>
-                  <a :href="'#/categories/remove/' + category._id" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+                  <a :href="'#/categories/show/' + category._id" class="btn btn-xs btn-success" title="Ver categoria"><i class="fa fa-eye"> </i></a>
+                  <a :href="'#/categories/remove/' + category._id" class="btn btn-xs btn-danger" title="Excluir categoria"><i class="fa fa-trash"></i></a>
+                  <a :href="'#/products/categories/' + category._id" class="btn btn-xs btn-primary" title="Listar produtos"><i class="fa fa-shopping-bag"></i></a>
                 </td>
               </tr>
             </tbody>
@@ -45,7 +46,7 @@
       }
     },
     mounted () {
-      this.$store.dispatch('getAll')
+      this.$store.dispatch('getAllCategories')
     }
   }
 </script>

@@ -4,7 +4,7 @@ exports.get = async() => {
     const res = await Category
         .find({
             enable: true
-        }, 'name description slug enable')
+        }, 'name description slug enable created')
     return res
 }
 
@@ -13,13 +13,13 @@ exports.getBySlug = async(slug) => {
         .findOne({
             slug: slug,
             enable: true
-        }, 'name description slug enable')
+        }, 'name description slug enable created')
     return res
 }
 
 exports.getById = async(id) => {
     const res = await Category
-        .findById(id, 'id name description enable')
+        .findById(id, 'id name description enable created')
     return res
 }
 
@@ -43,6 +43,6 @@ exports.update = async(id, data) => {
 }
 
 exports.delete = async(id) => {
-    await Product
+    await Category
         .findOneAndRemove(id)
 }

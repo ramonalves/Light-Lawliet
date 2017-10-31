@@ -1,65 +1,87 @@
 <template>
   <div class="row">
-    <div class="col s12">
-      <h5>Gerenciamento de Campanha</h5>
-    </div>
-    <div class="col m9">
-      <div class="card grey lighten-4">
-        <div class="card-content">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>título</th>
-                <th>status</th>
-                <th>inicio</th>
-                <th>lista</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="(email, index) in emails">
-                <td>{{ index + 1 }}</td>
-                <td>{{ email.title }}</td>
-                <td>{{ email.status }}</td>
-                <td>{{ email.start }}</td>
-                <td>{{ email.list }}</td>
-                <td>
-                  <a :href="'#/email/view/' + email._id" class="btn">ver</a>
-                  <a :href="'#/email/edit/' + email._id" class="btn blue">editar</a>
-                  <a :href="'#/email/remove/' + email._id" class="btn red">remover</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-block">
+          <h3 class="card-title">Novo Produto</h3>
+          <form action="" @submit.prevent="save()" enctype="multipart/form-data">
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="name">Nome</label>
+                <input id="name" type="text" v-model="data.name" class="form-control" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="description">Descrição</label>
+                <input id="description" type="text" v-model="data.description" class="form-control" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="price">Preço R$</label>
+                <input id="price" type="number" v-model="data.price" class="form-control" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="quantity">Quantidade</label>
+                <input id="quantity" type="number" v-model="data.quantity" class="form-control" min="0" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="category">Categoria</label>
+                <select id="category" name="category" class="form-control" v-model="data.category" required>
+                    <option v-for="(category, index) in categories" v-bind:value="category._id">{{ category.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <label for="images3">Imagem</label>
+                <input type="file" id="images3" name="images3" class="form-control" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="submit" value="Salvar" class="btn btn-success btn-block">
+              </div>
+            </div>
+            <p id="error" class="text-danger"></p>
+          </form>
         </div>
       </div>
     </div>
-    <div class="col m3">
-      <div class="card lime">
-        <div class="card-content">
-          <span class="card-title">
-            Deseja iniciar uma campanha?
-          </span>
-          <p>
-            <a class="btn blue" href="#/email/new"> Começar </a>
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script>
-  export default {
-    computed: {
-      emails: function () {
-        return this.$store.state.email.emails
-      }
-    },
-    mounted () {
-      this.$store.dispatch('getAll')
+
+import $ from 'jquery'
+export default {
+  data: function () {
+    return {
+      data: {}
     }
+  },
+  methods: {
+    save: function () {
+      this.$store.dispatch('insertProduct', this.data).then(() => {
+        this.$router.push('/products')
+      }).catch((e) => {
+        $('#error').text(e)
+      })
+    }
+  },
+  computed: {
+    categories: function () {
+      return this.$store.state.category.categories
+    }
+  },
+  mounted () {
+    this.$store.dispatch('getAllCategories')
   }
+}
 </script>
+

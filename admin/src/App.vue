@@ -30,13 +30,13 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
                   <li>
-                      <a href="#/customers"><i class="fa fa-fw fa-users"></i>  Usuários</a>
-                  </li>
-                  <li>
                       <a href="#/categories"><i class="fa fa-fw fa-paper-plane-o"></i> Categorias</a>
                   </li>
                   <li>
                       <a href="#/products"><i class="fa fa-fw fa fa-shopping-bag"></i> Produtos</a>
+                  </li>
+                  <li>
+                      <a href="#/customers"><i class="fa fa-fw fa-users"></i>  Clientes</a>
                   </li>
               </ul>
           </div>
@@ -106,6 +106,8 @@ export default {
     padding: 0;
     background-color: #fff;
 }
+
+.card-title{margin-bottom: 30px}
 
 @media(min-width:768px) {
     #wrapper {

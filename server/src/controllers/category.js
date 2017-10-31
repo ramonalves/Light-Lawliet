@@ -98,7 +98,7 @@ exports.edit = async(req, res, next) => {
 
 exports.delete = async(req, res, next) => {
     try {
-        await Category.delete(req.body.id)
+        await Category.delete(req.params.id)
         res.status(204).json({
             status: true
         })

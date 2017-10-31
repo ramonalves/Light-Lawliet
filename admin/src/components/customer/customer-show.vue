@@ -42,7 +42,7 @@
       }
     },
     mounted () {
-      this.$store.dispatch('getAll')
+      this.$store.dispatch('getAllCustomers')
     }
   }
 </script>

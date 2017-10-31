@@ -12,6 +12,7 @@ import ProductList from '@/components/product/product-list'
 import ProductNew from '@/components/product/product-new'
 import ProductShow from '@/components/product/product-show'
 import ProductEdit from '@/components/product/product-edit'
+import ProductCategory from '@/components/product/product-category'
 import ProductRemove from '@/components/product/product-remove'
 import CustomerList from '@/components/customer/customer-list'
 import CustomerShow from '@/components/customer/customer-show'
@@ -95,6 +96,12 @@ let router = new Router({
       path: '/products/remove/:id',
       name: 'ProductRemove',
       component: ProductRemove,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/products/categories/:id',
+      name: 'ProductCategory',
+      component: ProductCategory,
       meta: { requiresAuth: true }
     },
 

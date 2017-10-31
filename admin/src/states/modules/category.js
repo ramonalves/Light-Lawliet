@@ -14,29 +14,29 @@ export default {
     }
   },
   actions: {
-    getAll (context) {
+    getAllCategories (context) {
       return window.axios.get('/api/categories').then((response) => {
         context.commit('updateCategories', response.data.data)
         return response
       })
     },
-    getOne (context, id) {
+    getOneCategory (context, id) {
       return window.axios.get('/api/categories/' + id).then((response) => {
         context.commit('updateCategory', response.data.data)
         return response
       })
     },
-    insert (context, data) {
+    insertCategory (context, data) {
       return window.axios.post('/api/categories', qs.stringify(data)).then((response) => {
         return response
       })
     },
-    update (context, data) {
+    updateCategory (context, data) {
       return window.axios.put('/api/categories/' + data._id, qs.stringify(data)).then((response) => {
         return response
       })
     },
-    remove (context, id) {
+    removeCategory (context, id) {
       return window.axios.delete('/api/categories/' + id).then((response) => {
         return response
       })

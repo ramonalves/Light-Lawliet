@@ -14,19 +14,19 @@ export default {
     }
   },
   actions: {
-    getAll (context) {
+    getAllCustomers (context) {
       return window.axios.get('/api/customers').then((response) => {
         context.commit('updateCustomers', response.data.data)
         return response
       })
     },
-    getOne (context, id) {
+    getOneCustomer (context, id) {
       return window.axios.get('/api/customers/' + id).then((response) => {
-        context.commit('updateCutomer', response.data.data)
+        context.commit('updateCustomer', response.data.data)
         return response
       })
     },
-    update (context, data) {
+    updateCustomer (context, data) {
       return window.axios.put('/api/customers/' + data._id, qs.stringify(data)).then((response) => {
         return response
       })
