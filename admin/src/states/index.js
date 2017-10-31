@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import user from './modules/user'
 import category from './modules/category'
 import product from './modules/product'
+import customer from './modules/customer'
 
 window.axios = require('axios')
 window.axios.defaults.baseURL = process.env.SERVER
@@ -13,7 +14,8 @@ let config = {
   modules: {
     user: user,
     category: category,
-    product: product
+    product: product,
+    customer: customer
   }
 }
 

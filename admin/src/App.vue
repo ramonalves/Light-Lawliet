@@ -30,7 +30,7 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse">
               <ul class="nav navbar-nav side-nav">
                   <li>
-                      <a href="#/users"><i class="fa fa-fw fa-users"></i>  Usuários</a>
+                      <a href="#/customers"><i class="fa fa-fw fa-users"></i>  Usuários</a>
                   </li>
                   <li>
                       <a href="#/categories"><i class="fa fa-fw fa-paper-plane-o"></i> Categorias</a>
@@ -237,7 +237,7 @@ export default {
   width:130px;
 }
 
-#menu + #wrapper {
-  margin-left: 225px;
+#login + #wrapper {
+  margin-left: 0;
 }
 </style>

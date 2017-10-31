@@ -13,6 +13,9 @@ import ProductNew from '@/components/product/product-new'
 import ProductShow from '@/components/product/product-show'
 import ProductEdit from '@/components/product/product-edit'
 import ProductRemove from '@/components/product/product-remove'
+import CustomerList from '@/components/customer/customer-list'
+import CustomerShow from '@/components/customer/customer-show'
+import CustomerEdit from '@/components/customer/customer-edit'
 
 Vue.use(Router)
 
@@ -92,6 +95,26 @@ let router = new Router({
       path: '/products/remove/:id',
       name: 'ProductRemove',
       component: ProductRemove,
+      meta: { requiresAuth: true }
+    },
+
+    // Rotas para cliente
+    {
+      path: '/customers',
+      name: 'CustomerList',
+      component: CustomerList,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/customers/show/:id',
+      name: 'CustomerShow',
+      component: CustomerShow,
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/customers/edit/:id',
+      name: 'CustomerEdit',
+      component: CustomerEdit,
       meta: { requiresAuth: true }
     }
   ]

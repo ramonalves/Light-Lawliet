@@ -1,6 +1,7 @@
 const Validator = require('./../helpers/data-validator')
 const Customer = require('./../db/customer/crud')
 const slugfy = require('./../helpers/slugfy')
+const md5 = require('md5')
 
 exports.get = async(req, res, next) => {
     try {
@@ -45,7 +46,7 @@ exports.add = async(req, res, next) => {
 
         let data = await Customer.create({
             name: req.body.name,
-            password: req.body.password,
+            password: md5(req.body.password + global.PWD_KEY),
             slug: slug,
             email: req.body.email,
             cpf: req.body.cpf,
