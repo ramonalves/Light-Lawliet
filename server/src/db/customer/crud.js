@@ -2,7 +2,7 @@ const Customer = require('./../../models/customer')
 
 exports.get = async() => {
     const res = await Customer
-        .find({})
+        .find({}, null, {sort: {name: 1}})
     return res
 }
 

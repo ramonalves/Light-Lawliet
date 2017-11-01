@@ -50,11 +50,6 @@
               </div>
           </div>
       </div>
-      <footer id="footer" class="footer navbar navbar-static-bottom">
-        <div class="col-md-12 text-center">
-          <small>By Ramon Alves</small>
-        </div>
-      </footer>
     </div>
   </div>
 </template>
@@ -108,6 +103,9 @@ export default {
 
 .card-title{margin-bottom: 30px}
 
+@media(max-width:468px) {
+  #content{margin-top: 120px;}
+}
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;
@@ -240,9 +238,5 @@ export default {
 
 #login + #wrapper {
   margin-left: 0;
-}
-
-#footer {
-    margin-top: 200px
 }
 </style>

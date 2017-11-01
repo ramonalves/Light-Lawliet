@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 exports.get = async() => {
     const res = await Product
-        .find({}, 'id name description price slug image quantity enable created')
+        .find({}, 'id name description price slug image quantity enable created', {sort: {name: 1}})
         .populate('category', 'name')
     return res
 }

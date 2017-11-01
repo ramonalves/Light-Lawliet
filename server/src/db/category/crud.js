@@ -4,7 +4,7 @@ exports.get = async() => {
     const res = await Category
         .find({
             enable: true
-        }, 'name description slug enable created')
+        }, 'name description slug enable created', {sort: {name: 1}})
     return res
 }
 

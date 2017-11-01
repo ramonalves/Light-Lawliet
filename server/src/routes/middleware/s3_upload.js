@@ -12,7 +12,7 @@ const s3 = new aws.S3()
 let upload = multer({
 	storage: multerS3({
 		s3: s3,
-		bucket: 'ec.products-images',
+		bucket: keys.bucket, 
 		acl: 'public-read-write',
 		metadata: (req, file, cb) => {
 			cb(null, { fieldName: file.fieldname })

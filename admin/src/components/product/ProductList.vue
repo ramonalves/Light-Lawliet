@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-block">
           <h3 class="card-title">Produtos</h3>
-          <p><a href="#/products/new"> Add novo produto</a></p>
+          <p><a href="#/products/new"> <i class="fa fa-plus"></i> Add novo produto</a></p>
           <div class="table-responsive">
 						<table class="table table-hover">
               <thead>

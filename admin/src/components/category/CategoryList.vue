@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-block">
           <h3 class="card-title">Categorias</h3>
-          <p><a href="#/categories/new"> Add nova categoria</a></p>
+          <p><a href="#/categories/new"> <i class="fa fa-plus"></i> Add nova categoria</a></p>
           <div class="table-responsive">
 						<table class="table table-hover">
               <thead>

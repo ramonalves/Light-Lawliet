@@ -1,12 +1,12 @@
 <template>
   <div class="row" id="login">
-    <div class="col-sm-6 col-sm-offset-3">
-      <!-- <img src="./../assets/l_logo2.png"> -->
+    <div class="row logo text-center">
+      <img src="/static/img/icons/l_logo.png" class="img-responsive center-block">
     </div>
     <div class="col-sm-6 col-sm-offset-3">
       <div class="card">
         <div class="card-block">
-          <h3 class="card-title text-center">Autenticação</h3>
+          <h3 class="card-title text-center">Login</h3>
           <form @submit.prevent="userLogin()">
             <div class="row">
               <div class="form-group col-md-12">
@@ -44,16 +44,17 @@ export default {
     }
   },
   mounted () {
-    $('#content').addClass('col-md-6 col-md-offset-3')
+    $('#content').addClass('col-md-6 col-md-offset-3').removeClass('col-md-12')
     return this.$store.state.user.me ? this.$router.push({path: '/'}) : null
   },
   methods: {
     userLogin () {
       this.$store.dispatch('authentication', this.login).then(() => {
+        $('#content').removeClass('col-md-6 col-md-offset-3')
         this.$router.push({path: '/'})
       }).catch((e) => {
         $('#alert-error').removeClass('hidden')
-        $('#error').text(e)
+        $('#error').text('Login não realizado. ' + e)
       })
     }
   }
@@ -62,7 +63,17 @@ export default {
 
 <style>
 #wrapper {
-    padding-left: 0px; 
+    padding-left: 0px;
+}
+.logo{
+  margin-bottom: 20px;
+  padding: 15px 15px;
+}
+.logo img {
+ max-width: 150px;
+}
+.card{
+  padding-bottom: 50px
 }
 </style>
 

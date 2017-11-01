@@ -1,0 +1,115 @@
+#header {
+	position: relative;
+	height: 100%;
+	min-height: 100%;
+	background: $body-bg;
+	&.no-height {
+		height: auto;
+		min-height: auto;
+	}
+	.logo {
+		z-index: 3;
+		padding: 1rem 1rem;
+		img { 
+			width: 12em;
+		}
+	}
+	.account {
+		padding: 7rem 0 0 0;
+		z-index: 3;
+		.shopping {
+			border-left: 1px solid $black-dark-default;
+		}
+	}
+	.navbar {
+		min-height: 4em;
+		z-index: 1;
+		background: $black-default;
+		border: none;
+		margin-bottom: 5em;
+		.navbar-nav {
+			li {
+				margin-right: 10px;
+				a {
+					color: $white-default;
+					text-transform: uppercase;
+					font-weight: bold;
+					&:hover, &:active {
+						color: #fcee32
+					}
+				}
+			}
+		}
+		.navbar-right{
+			margin-right:0 !important;
+		}
+	}
+
+	.carousel {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		min-height: 100%;
+		.carousel-inner {
+			height: 100%;
+			min-height: 100%;
+			.item {
+				height: 100%;
+				min-height: 100%;
+			}
+			.fill {
+				height: 100%;
+				min-height: 100%;				
+				background-size: cover;
+				background-position: center;
+			}
+
+			.carousel-caption {
+				bottom: 25%;
+				left: 15%;
+				right: 15%;
+				h2 {
+					color: rgb(252, 245, 245);
+					font-weight: bold;
+				}
+				p {
+					color: rgb(233, 230, 230);
+					font-size: 1.6em;
+					padding: 1em 0;
+				}
+				.btn {
+					color: $yellow-default;
+					padding: 1em;
+					&:hover, &:active {
+						color: #f8f8f5
+					}
+				}
+			}
+		}
+		.carousel-control {
+			&.left {
+				background: none;
+				i {
+					position: absolute;
+					top: 50%;
+					z-index: 5;
+					display: inline-block;
+					font-size: 4em;
+				}
+			}
+			&.right {
+				background: none;
+				i {
+					position: absolute;
+					top: 50%;
+					z-index: 5;
+					display: inline-block;
+					font-size: 4em;
+				}
+			}
+		}
+	}
+}

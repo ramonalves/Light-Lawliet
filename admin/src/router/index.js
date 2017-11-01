@@ -5,20 +5,19 @@ import Login from '@/components/user/Login'
 import Logout from '@/components/user/Logout'
 import EditProfile from '@/components/user/EditProfile'
 import store from '@/states'
-import CategoryList from '@/components/category/category-list'
-import CategoryNew from '@/components/category/category-new'
-import CategoryShow from '@/components/category/category-show'
-import CategoryEdit from '@/components/category/category-edit'
-import CategoryRemove from '@/components/category/category-remove'
-import ProductList from '@/components/product/product-list'
-import ProductNew from '@/components/product/product-new'
-import ProductShow from '@/components/product/product-show'
-import ProductEdit from '@/components/product/product-edit'
-import ProductCategory from '@/components/product/product-category'
-import ProductRemove from '@/components/product/product-remove'
-import CustomerList from '@/components/customer/customer-list'
-import CustomerShow from '@/components/customer/customer-show'
-import CustomerEdit from '@/components/customer/customer-edit'
+import CategoryList from '@/components/category/CategoryList'
+import CategoryNew from '@/components/category/CategoryNew'
+import CategoryShow from '@/components/category/CategoryShow'
+import CategoryEdit from '@/components/category/CategoryEdit'
+import CategoryRemove from '@/components/category/CategoryRemove'
+import ProductList from '@/components/product/ProductList'
+import ProductNew from '@/components/product/ProductNew'
+import ProductShow from '@/components/product/ProductShow'
+import ProductEdit from '@/components/product/ProductEdit'
+import ProductCategory from '@/components/product/ProductCategory'
+import ProductRemove from '@/components/product/ProductRemove'
+import CustomerList from '@/components/customer/CustomerList'
+import CustomerShow from '@/components/customer/CustomerShow'
 
 Vue.use(Router)
 
@@ -129,12 +128,6 @@ let router = new Router({
       path: '/customers/show/:id',
       name: 'CustomerShow',
       component: CustomerShow,
-      meta: { requiresAuth: true }
-    },
-    {
-      path: '/customers/edit/:id',
-      name: 'CustomerEdit',
-      component: CustomerEdit,
       meta: { requiresAuth: true }
     }
   ]
