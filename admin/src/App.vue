@@ -11,18 +11,16 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="#/">
                   <img :src="loadImage('l_logo2.png')">
               </a>
           </div>
           <ul class="nav navbar-right top-nav">
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ me.user.name }} <b class="fa fa-angle-down"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ me.user.name.split(' ').slice(0, 1).join(' ') }} <b class="fa fa-angle-down"></b></a>
                   <ul class="dropdown-menu">
-                      <li><a href="#"><i class="fa fa-fw fa-user"></i> Editar Perfil</a></li>
-                      <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                      <li><a :href="'#/edit-profile/' + me.user._id"><i class="fa fa-fw fa-user"></i> Editar Perfil</a></li>
+                      <li><a href="#/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
                   </ul>
               </li>
           </ul>
@@ -72,13 +70,14 @@ export default {
     }
   },
   mounted () {
-    // $('[data-toggle="tooltip"]').tooltip()
+    $('[data-toggle="tooltip"]').tooltip()
     $('.side-nav .collapse').on('hide.bs.collapse', function () {
       $(this).prev().find('.fa').eq(1).removeClass('fa-angle-right').addClass('fa-angle-down')
     })
     $('.side-nav .collapse').on('show.bs.collapse', function () {
       $(this).prev().find('.fa').eq(1).removeClass('fa-angle-down').addClass('fa-angle-right')
     })
+    $('#content').removeClass('col-md-6 col-md-offset-3')
   },
   methods: {
     loadImage (imgName) {
@@ -241,5 +240,9 @@ export default {
 
 #login + #wrapper {
   margin-left: 0;
+}
+
+#footer {
+    margin-top: 200px
 }
 </style>

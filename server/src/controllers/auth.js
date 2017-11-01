@@ -57,7 +57,28 @@ module.exports = function (app) {
             User.create(data, callback);
         },
         edit: (req, res) => {
-            return res.json({page: 'auth@edit'});
-        }
+            let user = req.body;
+
+            let callback = function (err, user) {
+                if (err) {
+                    return res.status(422).json({
+                        status: false,
+                        err: err
+                    });
+                }
+
+                return res.status(200).json({
+                    status: true,
+                    data: user
+                });
+            }
+            
+            let data = {
+                name: req.body.name,
+                email: req.body.email,
+                password: md5(user.password + global.PWD_KEY),
+            }
+            User.findByIdAndUpdate(req.params.id, data, callback)
+        },
     }
 }

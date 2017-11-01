@@ -32,8 +32,8 @@
             <div class="row">
               <div class="form-group col-md-12">
                 <label for="category">Categoria</label>
-                <select id="category" name="category" class="form-control" v-model="product.category._id" required>
-                    <option v-for="(category, index) in categories" v-bind:value="category._id" v-if="category._id == product.category._id ? 'selected' : null">{{ category.name }} </option>
+                <select id="category" name="category" class="form-control" v-model="product.category._id || null" required>
+                    <option v-for="(category, index) in categories" v-bind:value="category._id">{{ category.name }} </option>
                 </select>
               </div>
             </div>

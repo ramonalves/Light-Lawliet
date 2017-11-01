@@ -20,13 +20,13 @@
             <div class="row">
               <div class="form-group col-md-12">
                 <label for="price">Preço R$</label>
-                <input id="price" type="number" v-model="data.price" class="form-control" required>
+                <input id="price" type="number" v-model="data.price" class="form-control" min="0" step="0.1" required>
               </div>
             </div>
             <div class="row">
               <div class="form-group col-md-12">
                 <label for="quantity">Quantidade</label>
-                <input id="quantity" type="number" v-model="data.quantity" class="form-control" min="0" required>
+                <input id="quantity" type="number" v-model="data.quantity" class="form-control" min="1" step="1" required>
               </div>
             </div>
             <div class="row">

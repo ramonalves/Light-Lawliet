@@ -11,6 +11,9 @@ export default {
     },
     updateToken (state, data) {
       state.token = data
+    },
+    logoutUser (state) {
+      state.me = null
     }
   },
   actions: {
@@ -35,6 +38,22 @@ export default {
         }
         return context.dispatch('authentication', authData)
       })
+    },
+    updateUser (context, data) {
+      let dataUpdate = {
+        email: data.email,
+        name: data.name,
+        password: data.password
+      }
+      return window.axios.put('/oauth/profile-update/' + data._id, qs.stringify(dataUpdate)).then((response) => {
+        return response
+      }).catch(e => {
+        return e
+      })
+    },
+    logout (context) {
+      window.localStorage.removeItem('token')
+      context.commit('logoutUser')
     }
   }
 }

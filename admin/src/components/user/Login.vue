@@ -23,7 +23,10 @@
             <button class="btn btn-primary btn-block" type="submit">
               Acessar <i class="fa fa-send"></i>
             </button>
-            <p id="error" class="text-danger"></p>
+            <br>
+            <div class="alert alert-danger text-center hidden" role="alert" id="alert-error">
+              <p id="error" class="text-danger"></p>
+            </div>
           </form>
         </div>
       </div>
@@ -38,10 +41,10 @@ export default {
   data: function () {
     return {
       login: {}
-      // register: {}
     }
   },
   mounted () {
+    $('#content').addClass('col-md-6 col-md-offset-3')
     return this.$store.state.user.me ? this.$router.push({path: '/'}) : null
   },
   methods: {
@@ -49,16 +52,10 @@ export default {
       this.$store.dispatch('authentication', this.login).then(() => {
         this.$router.push({path: '/'})
       }).catch((e) => {
+        $('#alert-error').removeClass('hidden')
         $('#error').text(e)
       })
     }
-    // userRegister () {
-    //   this.$store.dispatch('register', this.register).then(() => {
-    //     this.$router.push({path: '/'})
-    //   }).catch((e) => {
-    //     $('#error-register').text(e)
-    //   })
-    // }
   }
 }
 </script>

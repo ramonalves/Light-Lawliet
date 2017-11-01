@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Olá, {{ me.user.name }}</h1>
+    <h1>Olá, {{ me.user.name.split(' ').slice(0, 1).join(' ')  }}</h1>
   </div>
 </template>
 

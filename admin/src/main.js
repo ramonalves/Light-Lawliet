@@ -7,7 +7,8 @@ import store from './states'
 import moment from 'moment'
 import VueMomentJS from 'vue-momentjs'
 
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'font-awesome/css/font-awesome.css'
 
 Vue.config.productionTip = false

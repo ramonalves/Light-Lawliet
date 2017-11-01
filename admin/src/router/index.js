@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Login from '@/components/auth/Login'
+import Login from '@/components/user/Login'
+import Logout from '@/components/user/Logout'
+import EditProfile from '@/components/user/EditProfile'
 import store from '@/states'
 import CategoryList from '@/components/category/category-list'
 import CategoryNew from '@/components/category/category-new'
@@ -35,6 +37,17 @@ let router = new Router({
       component: Login
     },
 
+    {
+      path: '/edit-profile/:id',
+      name: 'EditProfile',
+      component: EditProfile
+    },
+
+    {
+      path: '/logout',
+      name: 'Logout',
+      component: Logout
+    },
     // Rotas para Category
     {
       path: '/categories',

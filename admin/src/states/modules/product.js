@@ -50,6 +50,7 @@ export default {
       })
     },
     updateProduct (context, data) {
+      data.category = data.category._id
       return window.axios.put('/api/products/' + data._id, qs.stringify(data)).then((response) => {
         return response
       }).catch(e => {
