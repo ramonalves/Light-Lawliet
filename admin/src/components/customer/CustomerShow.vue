@@ -31,7 +31,7 @@
               </tr>
               <tr>
                 <th>Celular</th>
-                <td>{{ customer.cellphone }}</td>
+                <td>{{ customer.celphone }}</td>
               </tr>
               <tr v-for="(address, index) in customer.address">
                 <th>{{ index }}</th>
