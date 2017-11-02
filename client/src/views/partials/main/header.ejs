@@ -1,7 +1,7 @@
-<header id="header" class="no-height">
-<div class="container">
+<header id="header">
+	<div class="container">
         <div class="row">
-            <nav class="navbar navbar-inverse navbar-static-top">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
                         <span class="sr-only">Toggle</span>
@@ -18,13 +18,23 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-							<a href="/">Início</a>
+							<a href="#products">Produtos</a>
 						</li>
-						<% for (var i = 0; i < categories_menu.length; i++) {%>
-							<li>
-								<a href="/product/category/<%= categories_menu[i]._id %>"><%= categories_menu[i].name %></a>
-							</li>
-						<% } %>
+						<li class="dropdown">
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-red-default upper dropdown-toggle" data-toggle="dropdown">
+									<a href="#"> Categorias </a>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<% for (var i = 0; i < categories_menu.length; i++) {%>
+										<li>
+											<a href="/product/category/<%= categories_menu[i]._id %>"><%= categories_menu[i].name %></a>
+										</li>
+									<% } %>
+								</ul>
+							</div>
+						</li>
 						<li class="dropdown">
 							<% if (user) { %>
 								<div class="btn-group" role="group">
@@ -43,20 +53,26 @@
 									</ul>
 								</div>
 							<% } else { %>
-								<a href="/account" class="btn btn-red-default upper">
-									Entrar / Registrar
-								</a>
+								<li>
+									<a href="/account" class="btn btn-red-default upper">
+										Entrar / Registrar
+									</a>
+								</li>
 							<% } %>
 							<% if (cart_g._id) { %>
-								<a href="/cart/<%= cart_g._id %>" class="btn btn-red-default shopping upper">
-									<i class="fa fa-shopping-cart"></i>
-									<span class="badge"><%= cart_g.count %></span>
-								</a>
+								<li>
+									<a href="/cart/<%= cart_g._id %>" class="btn btn-red-default shopping upper">
+										<i class="fa fa-shopping-cart"></i>
+										<span class="badge"><%= cart_g.count %></span>
+									</a>
+								</li>
 							<% } else { %>
-								<a href="" class="btn btn-red-default shopping upper">
-									<i class="fa fa-shopping-cart"></i>
-									<span class="badge"><%= cart_g.count %></span>
-								</a>
+								<li>
+									<a href="" class="btn btn-red-default shopping upper">
+										<i class="fa fa-shopping-cart"></i>
+										<span class="badge"><%= cart_g.count %></span>
+									</a>
+								</li>
 							<% } %>
 						</li>
                     </ul>

@@ -51,9 +51,8 @@ h1, h2, h3, h4, h5, h6 {
 
 #header {
   position: relative;
-  height: 100%;
-  min-height: 100%;
-  background: #fefefe; }
+  background: #fefefe;
+  margin-bottom: 6em; }
   #header.no-height {
     height: auto;
     min-height: auto; }
@@ -72,15 +71,22 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
     background: #131011;
     border: none;
-    margin-bottom: 5em; }
+    margin-bottom: 1em; }
+    #header .navbar .navbar-nav ul {
+      padding: 10px; }
     #header .navbar .navbar-nav li {
       margin-right: 10px; }
       #header .navbar .navbar-nav li a {
+        text-decoration: none;
         color: #f1f1f1;
         text-transform: uppercase;
         font-weight: bold; }
         #header .navbar .navbar-nav li a:hover, #header .navbar .navbar-nav li a:active {
           color: #fcee32; }
+      #header .navbar .navbar-nav li .dropdown-menu a {
+        color: #131011; }
+      #header .navbar .navbar-nav li .btn-group {
+        padding-top: 0.55em; }
     #header .navbar .navbar-right {
       margin-right: 0 !important; }
   #header .carousel {
@@ -136,7 +142,8 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 4em; }
 
 #footer {
-  padding: 3.5em 0;
+  margin-top: 5em;
+  padding: 3.2em 0 2em 0;
   background: #131011; }
   #footer .img-logo img {
     padding-bottom: 1em;

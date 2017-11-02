@@ -15,11 +15,12 @@ module.exports = (req, res) => {
 			street: req.body.street,
 			number: req.body.number_delivery,
 			city: req.body.city,
-			neightborhood: req.body.neightborhood
+			neightborhood: req.body.neightborhood,
+			uf: req.body.uf
 		}
 	}
-
 	Customer.register(data, req.body.password, (error, account) => {
+		console.log(error)
 		if (error) {
 			return res.redirect('/')
 		}

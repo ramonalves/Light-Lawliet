@@ -10,7 +10,7 @@ router.get('/new', (req, res) => {
 	const customer = new Customer()
 	
 	return res.render('account/new', {
-		title: 'Register',
+		title: 'Cadastro',
 		customer: customer,
 		layout: 'layouts/main',
 		user: req.user || undefined

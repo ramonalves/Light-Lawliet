@@ -28,11 +28,6 @@
 	</div>
 </div>
 <div class="form-group">
-	<label for="name">Data de Nascimento</label>
-	<input type="text" name="birthday" class="form-control" placeholder="XX/XX/XXXXX" value="<%= customer.birthday %>">
-</div>
-
-<div class="form-group">
 	<label for="name">CPF</label>
 	<input type="text" name="cpf" class="form-control" placeholder="000.000.000-00" value="<%= customer.cpf %>">
 </div>
@@ -72,6 +67,10 @@
 <div class="form-group">
 	<label for="name">Cidade</label>
 	<input type="text" name="city" class="form-control" placeholder="Informe sua cidade"  value="<%= customer.address.city %>">
+</div>
+<div class="form-group">
+	<label for="name">UF</label>
+	<input type="text" name="uf" class="form-control" placeholder="Informe sua UF"  value="<%= customer.address.uf %>">
 </div>
 
 <div class="form-group">

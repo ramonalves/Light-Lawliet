@@ -18,8 +18,7 @@ const Customer = new mongoose.Schema({
         trim: true
 	},
 	password: {
-        type: String,
-        required: true,
+        type: String,        
         trim: true
     },
     cpf: {

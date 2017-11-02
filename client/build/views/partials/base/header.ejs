@@ -18,13 +18,23 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-							<a href="/">Início</a>
+							<a href="#products">Produtos</a>
 						</li>
-						<% for (var i = 0; i < categories_menu.length; i++) {%>
-							<li>
-								<a href="/product/category/<%= categories_menu[i]._id %>"><%= categories_menu[i].name %></a>
-							</li>
-						<% } %>
+						<li class="dropdown">
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-red-default upper dropdown-toggle" data-toggle="dropdown">
+									<a href="#"> Categorias </a>
+									<span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu">
+									<% for (var i = 0; i < categories_menu.length; i++) {%>
+										<li>
+											<a href="/product/category/<%= categories_menu[i]._id %>"><%= categories_menu[i].name %></a>
+										</li>
+									<% } %>
+								</ul>
+							</div>
+						</li>
 						<li class="dropdown dropdown-menu-right">
 							<% if (user) { %>
 								<div class="btn-group" role="group">

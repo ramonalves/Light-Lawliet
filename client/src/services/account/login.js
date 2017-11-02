@@ -1,4 +1,5 @@
 const Customer = require('./../../models/customer')
+const md5 = require('md5')
 
 module.exports = (req, res) => {
 	Customer.authenticate()(req.body.email, req.body.password, (error, user, opts) => {

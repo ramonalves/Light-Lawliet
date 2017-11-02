@@ -1,7 +1,7 @@
 module.exports = (req, res) => {
 	if (!req.user) {
 		return res.render('account/index', {
-			title: 'Account',
+			title: 'Login',
 			layout: 'layouts/main',
 			user: req.user || undefined
 		})

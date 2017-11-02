@@ -1,3 +1,5 @@
+global.PWD_KEY = "uaokio-1joooja-asakjsajih82-1jasjadj"
+
 const path = require('path')
 const express = require('express')
 const morgan = require('morgan')
