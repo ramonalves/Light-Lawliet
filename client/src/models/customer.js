@@ -28,7 +28,8 @@ const Customer = new mongoose.Schema({
 	},
 	celphone: {
 		type: String,
-		default: ''
+		required: true,
+        trim: true
 	},
 	address: {
         cep: {

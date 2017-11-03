@@ -20,11 +20,17 @@ module.exports = (req, res) => {
 		}
 	}
 	Customer.register(data, req.body.password, (error, account) => {
-		console.log(error)
-		if (error) {
-			return res.redirect('/')
-		}
-
-		return res.redirect('/account')
+		Customer.authenticate()(data.email, req.body.password, (error, user, opts) => {
+			if (error || user == false) {
+				return res.redirect('/account')
+			}
+	
+			return req.login(user, (error) => {
+				if (error) {
+					return res.redirect('/account')
+				}
+				return res.redirect(req.body.next || '/')
+			})
+		})
 	})
 }

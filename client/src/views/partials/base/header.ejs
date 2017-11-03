@@ -43,7 +43,7 @@
 								<div class="btn-group" role="group">
 									<button type="button" class="btn btn-red-default upper dropdown-toggle" data-toggle="dropdown">
 										<i class="fa fa-user"></i>
-										<%= user.name %>
+										<%= user.name.split(' ').slice(0, 1).join(' ') %>
 										<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
@@ -74,7 +74,7 @@
 				<div class="carousel-caption">
 					<h2>Sua Loja Virtual</h2>
 					<p>Compre sem sair de casa</p>
-					<a href="#products" class="btn btn-red-default upper"> Compre Agora</a>
+					<a href="#products" class="btn btn-red-default upper"> Comece a comprar</a>
 				</div>
 			</div>
 			<div class="item">
@@ -82,7 +82,7 @@
 				<div class="carousel-caption">
 					<h2>Ambiente Seguro</h2>
 					<p>Tranquilidade para comprar usando seu cartão de crédito</p>
-					<a href="#products" class="btn btn-red-default upper"> Compre Agora</a>
+					<a href="#products" class="btn btn-red-default upper"> Comece a comprar</a>
 				</div>
 			</div>
 			<div class="item">
@@ -90,7 +90,7 @@
 				<div class="carousel-caption">
 					<h2>Melhores Produtos</h2>
 					<p>Compre produtos de qualidade e com ótimos preços</p>
-					<a href="/produtos" class="btn btn-red-default upper"> Compre Agora</a>
+					<a href="/produtos" class="btn btn-red-default upper"> Comece a comprar</a>
 				</div>
 			</div>
 			<a href="#slider" class="left carousel-control" data-slide="prev">

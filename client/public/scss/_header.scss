@@ -92,10 +92,13 @@
 					padding: 1em 0;
 				}
 				.btn {
-					color: $yellow-default;
+					color: $black-default;
+					font-size: 1.2em;
+					background-color: $yellow-default;
+					width: 15em;
 					padding: 1em;
 					&:hover, &:active {
-						color: #f8f8f5
+						color: #8a8a89
 					}
 				}
 			}

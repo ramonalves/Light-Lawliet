@@ -4,6 +4,7 @@ const pagseguro = require('pagseguro')
 const parseString = require('xml2js').parseString
 const info = require('./../../config/info')
 const url = require('./../../helpers/url')
+const guid = require('guid')
 
 module.exports = (req, res) => {
 	Cart
@@ -33,7 +34,7 @@ module.exports = (req, res) => {
 			})
 
 			pag.currency('BRL')
-				.reference(123568)
+				.reference(guid.raw().substring(0, 6))
 
 			let counter = 1
 
@@ -60,11 +61,11 @@ module.exports = (req, res) => {
 				type: 1,
 				street: cart && cart.customer && cart.customer.address && cart && cart.customer && cart.customer.address.street,
 				number: cart && cart.customer && cart.customer.address && cart && cart.customer && cart.customer.address.number,
-				complement: 'nenhum',
+				complement: 'nd',
 				district: cart && cart.customer && cart.customer.address && cart && cart.customer && cart.customer.address.neightborhood,
-				postalCode: '29902-150',
+				postalCode: cart && cart.customer && cart.customer.address && cart && cart.customer && cart.customer.address.cep,
 				city: cart && cart.customer && cart.customer.address && cart && cart.customer && cart.customer.address.city,
-				state: 'SP',
+				state: cart && cart.customer && cart.customer.address && cart && cart.customer && cart.customer.address.uf,
 				country: 'BRA'
 			})
 

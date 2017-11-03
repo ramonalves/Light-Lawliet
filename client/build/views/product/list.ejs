@@ -17,6 +17,11 @@
 									<div class="price">
 										<strong>R$ <%= data[i].price %></strong>
 										<a href="/produtos/<%= data[i].slug %>" class="btn btn-red-default">Detalhes</a>
+										<p class="help-block category-link"> 
+											<a href="/produtos/categoria/<%= data[i].category.slug %>">
+												<%= data[i].category.name %>
+											</a>
+										</p>
 									</div>
 								</div>
 							</div>	

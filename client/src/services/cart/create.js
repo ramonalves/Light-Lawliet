@@ -15,7 +15,7 @@ module.exports = (req, res) => {
                     .save()
                     .then((cart) => {
                         req.session.cart_id = cart._id
-                        return res.redirect('/product/'.concat(product.slug))
+                        return res.redirect('/cart/'.concat(cart._id))
                     })
             })
     }
@@ -30,7 +30,7 @@ module.exports = (req, res) => {
                 return cart
                     .save()
                     .then((saved) => {
-                        return res.redirect('/product/'.concat(req.body.product_slug))
+                        return res.redirect('/produtos/'.concat(req.body.product_slug))
                     })
             }
 
@@ -48,7 +48,7 @@ module.exports = (req, res) => {
                     upsert: true
                 })
                 .then((updated) => {
-                    return res.redirect('/product/'.concat(req.body.product_slug))
+                    return res.redirect('/produtos/'.concat(req.body.product_slug))
                 })
         })
         .catch((error) => {

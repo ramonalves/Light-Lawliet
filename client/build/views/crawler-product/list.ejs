@@ -17,7 +17,7 @@
 									<div class="price">
 										<strong>R$ <%= data[i].price %></strong>
 										<a href="/produtos-rastreados/<%= data[i]._id %>" class="btn btn-red-default">Detalhes</a><br><br>
-										<a class="text-success" href="#">Compre aqui por R$ <%= data[i].price - (parseInt((data[i].price * 10) / 100)) %></a>
+										<a class="text-success" href="/produtos-rastreados/<%= data[i]._id %>">Compre aqui por R$ <%= data[i].price - (parseInt((data[i].price * 10) / 100)) %></a>
 									</div>
 								</div>
 							</div>	

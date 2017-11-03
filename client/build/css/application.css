@@ -120,10 +120,13 @@ h1, h2, h3, h4, h5, h6 {
           font-size: 1.6em;
           padding: 1em 0; }
         #header .carousel .carousel-inner .carousel-caption .btn {
-          color: #fdf100;
+          color: #131011;
+          font-size: 1.2em;
+          background-color: #fdf100;
+          width: 15em;
           padding: 1em; }
           #header .carousel .carousel-inner .carousel-caption .btn:hover, #header .carousel .carousel-inner .carousel-caption .btn:active {
-            color: #f8f8f5; }
+            color: #8a8a89; }
     #header .carousel .carousel-control.left {
       background: none; }
       #header .carousel .carousel-control.left i {
@@ -198,6 +201,8 @@ h1, h2, h3, h4, h5, h6 {
         #products .list_pro .product_item .info .price strong {
           display: block;
           padding: 1em 0; }
+      #products .list_pro .product_item .info .category-link {
+        padding: 1em 0; }
 
 #line {
   position: relative;

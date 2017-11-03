@@ -3,5 +3,5 @@ module.exports = (req, res, next) => {
 		return next()
 	}
 
-	return res.redirect('/')
+	return res.redirect('/account?next=/cart/'+req.session.cart_id)
 }

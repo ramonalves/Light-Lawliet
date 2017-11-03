@@ -7,7 +7,7 @@ const envDir = path.join(__dirname, `./src/config/env/${env}`)
 
 require(envDir)(app)
 require('./src/middleware')(app)
-require('./src/index')(app)
+require('./src/routes')(app)
 
 app.listen(app.get('port'), () => {
 	console.log('Express work')

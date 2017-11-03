@@ -3,7 +3,7 @@ const Product = require('./../../models/product')
 module.exports = (req, res) => {
 	Product
 		.find({})
-		.populate('category', 'name')
+		.populate('category', 'name slug')
 		.then((products) => {
 			return res.render('product/list', {
 				title: 'Produtos',

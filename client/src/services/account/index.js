@@ -3,7 +3,8 @@ module.exports = (req, res) => {
 		return res.render('account/index', {
 			title: 'Login',
 			layout: 'layouts/main',
-			user: req.user || undefined
+			user: req.user || undefined,
+			next: req.query.next || undefined
 		})
 	}
 
