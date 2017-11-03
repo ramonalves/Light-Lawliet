@@ -11,7 +11,6 @@ module.exports = (req, res) => {
 			}
 
 			customer = customer.toObject()
-			console.log(customer)
 
 			return res.render('account/my-account', {
 				title: 'Minha Conta',
