@@ -43,12 +43,12 @@
 								<div class="btn-group" role="group">
 									<button type="button" class="btn btn-red-default upper dropdown-toggle" data-toggle="dropdown">
 										<i class="fa fa-user"></i>
-										<%= user.name %>
+										<%= user.name.split(' ').slice(0, 1).join(' ') %>
 										<span class="caret"></span>
 									</button>
 									<ul class="dropdown-menu">
 										<li>
-											<a href="/account/<%= user.slug %>">Minha Conta</a>
+											<a href="/account/<%= user.slug %>">Perfil</a>
 										</li>
 										<li>
 											<a href="/account/logout">Sair</a>
