@@ -23,7 +23,7 @@ module.exports = function (app) {
 
                 let payload = {id: user.id};
                 let token = jwt.encode(payload, config.jwrSecret);
-                return res.json({token: token});
+                return res.status(200).json({token: token});
             }
 
             user = User.findOne(query, callback);
@@ -48,7 +48,7 @@ module.exports = function (app) {
                         err: err
                     });
                 }
-                return res.status(200).json({
+                return res.status(201).json({
                     status: true,
                     data: user
                 });
