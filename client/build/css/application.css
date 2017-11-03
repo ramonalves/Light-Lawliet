@@ -50,9 +50,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold; }
 
 #header {
-  position: relative;
   background: #fefefe;
-  margin-bottom: 6em; }
+  margin-bottom: 6em;
+  min-height: 100%; }
   #header.no-height {
     height: auto;
     min-height: auto; }
@@ -180,16 +180,19 @@ h1, h2, h3, h4, h5, h6 {
           color: #080808;
           text-decoration: none; }
   #products .list_pro .product_item {
-    margin: 1.3em 0; }
+    margin: 1.5em 0;
+    min-height: 31em; }
     #products .list_pro .product_item .preview {
-      position: relative; }
+      position: relative;
+      margin-bottom: 1em; }
       #products .list_pro .product_item .preview img {
         min-height: 13em;
         max-height: 13em; }
     #products .list_pro .product_item .info {
       text-align: center;
       border: 1px solid #ececec;
-      padding: 1em; }
+      padding: 1em;
+      min-height: 15em; }
       #products .list_pro .product_item .info .price {
         position: relative; }
         #products .list_pro .product_item .info .price strong {

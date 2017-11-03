@@ -7,7 +7,7 @@
 				<ul class="list-group">
 					<% for (var i = 0; i < categories_menu.length; i++) {%>
 						<li class="list-group-item">
-							<a href="/product/category/<%= categories_menu[i]._id %>"><%= categories_menu[i].name %></a>
+							<a href="/produtos/categoria/<%= categories_menu[i].slug %>"><%= categories_menu[i].name %></a>
 						</li>
 					<% } %>
 				</ul>
@@ -21,10 +21,10 @@
 								<img src="<%= products[i].image %>" class="img-responsive center-block"  alt="">
 							</div>
 							<div class="info">
-								<a href="/product/<%= products[i].slug %>"><%= products[i].name %></a>
+								<a href="/produtos/<%= products[i].slug %>"><%= products[i].name %></a>
 								<div class="price">
 									<strong>R$ <%= products[i].price %></strong>
-									<a href="/product/<%= products[i].slug %>" class="btn btn-red-default">Detalhes</a>
+									<a href="/produtos/<%= products[i].slug %>" class="btn btn-red-default">Detalhes</a>
 								</div>
 							</div>
 						</div>

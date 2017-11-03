@@ -1,7 +1,7 @@
 #header {
-	position: relative;
 	background: $body-bg;
 	margin-bottom: 6em;
+	min-height: 100%;
 	&.no-height {
 		height: auto;
 		min-height: auto;

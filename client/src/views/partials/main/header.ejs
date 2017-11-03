@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" class="no-height">
 	<div class="container">
         <div class="row">
             <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -18,7 +18,10 @@
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-							<a href="#products">Produtos</a>
+							<a href="/produtos">Produtos</a>
+						</li>
+						<li>
+							<a href="/produtos-rastreados">Rastrear Produtos</a>
 						</li>
 						<li class="dropdown">
 							<div class="btn-group" role="group">
@@ -29,7 +32,7 @@
 								<ul class="dropdown-menu">
 									<% for (var i = 0; i < categories_menu.length; i++) {%>
 										<li>
-											<a href="/product/category/<%= categories_menu[i]._id %>"><%= categories_menu[i].name %></a>
+											<a href="/produtos/categoria/<%= categories_menu[i].slug %>"><%= categories_menu[i].name %></a>
 										</li>
 									<% } %>
 								</ul>

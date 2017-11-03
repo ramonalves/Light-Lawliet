@@ -82,10 +82,11 @@ exports.add = async(req, res, next) => {
 
 exports.edit = async(req, res, next) => {
     try {
-        let data = await Category.update(req.params.id, req.body)
+        req.body.slug = slugfy(req.body.name)
+        let result = await Category.update(req.params.id, req.body)
         res.status(200).json({
             status: true,
-            data
+            result
         })
     } catch (e) {
         res.status(500).json({
