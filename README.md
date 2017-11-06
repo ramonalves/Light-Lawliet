@@ -1,6 +1,8 @@
 # light-lawliet
 Sistema de e-commerce Light Lawliet.
 
+DOCUMENTAÇÂO: https://ramonalves.gitbooks.io/light-lawliet-api-documentation/content/
+
 /server
 
 API Restful para consulta, insersão, atualização e remoção de recursos referentes ao ecommerce L.
